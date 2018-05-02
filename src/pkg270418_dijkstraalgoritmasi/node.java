@@ -1,5 +1,4 @@
 package pkg270418_dijkstraalgoritmasi;
-
 import java.util.*;
 //Dügümlerin A dan B ye giderken ve B den A ya dönerken aynı maaliyet mantıgı ile kodlanmadı.
 public class node {
@@ -14,8 +13,6 @@ public class node {
     public void ekle(node gittigi,int maliyeti){
         nextNodeListe.add(gittigi);
         nextNodeListe_Maliyet.add(maliyeti);
-        //gittigi.gittigiDugumlerinListesi.add(this);
-        //gittigi.gittigiDugumleriMaliyeti.add(maliyeti);
     }
     String getDugumIsmi(){
         return this.dugumIsim;

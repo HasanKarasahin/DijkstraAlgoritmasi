@@ -3,16 +3,10 @@ package pkg270418_dijkstraalgoritmasi;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
-
-
 public class Form extends javax.swing.JFrame {
-
- 
     public Form() {
         initComponents();
     }
-
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,7 +27,6 @@ public class Form extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
     public static void main(String args[]) {
        
         try {
@@ -53,8 +46,7 @@ public class Form extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-    }
-    
+    }    
     
     public void optimizeDugumler(node[] dugumler){
         int i=0;
@@ -62,14 +54,12 @@ public class Form extends javax.swing.JFrame {
             System.out.println("Dugumun Adı : "+dugumler[i].getDugumIsmi()+" Dugumun baglantı Sayısı "+dugumler[i].nextNodeListe.size()+"  ");
             i++;
         }
-        
         for (node dugum:dugumler) {
             System.out.println("Uzerinde Oldugum Dugumunun Adı : "+dugum.getDugumIsmi());
             for (int j = 0; j < dugum.nextNodeListe.size(); j++) {
                 System.out.println(" ----> Gittigi Dugumun Adı : "+dugum.nextNodeListe.get(j).getDugumIsmi()+" Maaliyet "+dugum.nextNodeListe_Maliyet.get(j)+"  ");
             }
         }
-        
     }
     
     public void paint(Graphics g) {
@@ -77,8 +67,6 @@ public class Form extends javax.swing.JFrame {
         g.setColor(Color.red);
         g.fillRect(10, 70, 50, 50);
         g.fillRect(100, 70, 50, 50);
-        
-        
         g.fillArc(100,150,50,50,5,360);
     }
     
@@ -96,23 +84,13 @@ public class Form extends javax.swing.JFrame {
         Integer[] maliyet=new Integer[log.size()];
         
         for (int i = 0; i < log.size(); i++) {    
-            //A,B:10
+            //A,B:10   // ikiciparca[1] maaliyet // ikinciparca[0] gidiilcek dugum ismi //ilkparca[0] uzerinde bulundugumuz dugum ismi
             ilkparca = log.get(i).toString().split(",");
-            //ilkparca[0] uzerinde bulundugumuz dugum ismi
-            ikinciparca = ilkparca[1].split(":");
-            // ikinciparca[0] gidiilcek dugum ismi
-            // ikiciparca[1] maaliyet
             
+            ikinciparca = ilkparca[1].split(":");
             anaDugumler[i]=ilkparca[0];
             gidilenDugum[i]=ikinciparca[0];
             maliyet[i]=Integer.parseInt(ikinciparca[1]);
-            /*
-            if(isimIleNesneGetir(ilkparca[0],dugumler).nextNodeListe.size()==0){
-                isimIleNesneGetir(ilkparca[0],dugumler).nextNodeListe.add(isimIleNesneGetir(ikiciparca[0],dugumler));
-            }else{
-                isimIleNesneGetir(ilkparca[0],dugumler).nextNodeListe.clear();
-                isimIleNesneGetir(ilkparca[0],dugumler).nextNodeListe.add(isimIleNesneGetir(ikiciparca[0],dugumler));
-            } */
         }
 
             int enkucuk=999+1,tempj=-1,kontrol=-1;;
